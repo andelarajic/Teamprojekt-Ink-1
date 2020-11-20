@@ -1,0 +1,29 @@
+body {
+    margin: 0;
+}
+ 
+.topnav {
+    background-color:#2847bf;
+   height: 90px;
+}
+
+.topnav .logo {
+    /*background-color: #132670;*/
+    width: 80px;
+    padding: 0 15px;
+    margin-top: 5px;
+}
+
+.logo1 {
+    float: left;
+}
+
+.topnav a {
+    vertical-align: top;
+    color: white;
+    font-size: 40px;
+    margin-right: 50px;       
+    line-height: 90px;
+    float: right;
+    text-decoration: none;
+} 
