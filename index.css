@@ -7,15 +7,14 @@ body {
    height: 90px;
 }
 
-.topnav .logo {
-    /*background-color: #132670;*/
-    width: 80px;
-    padding: 0 15px;
-    margin-top: 5px;
-}
-
 .logo1 {
     float: left;
+    padding: 5px 20px;
+    font-size: 300px;
+}
+
+.fa-quora:before { 
+    font-size: 80px;
 }
 
 .topnav a {
