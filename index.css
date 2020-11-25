@@ -3,7 +3,7 @@ body {
 }
 
 .topnav {
-  background-color: blue;
+  background-color: #236BBD;
   overflow: hidden;
   width: 100%;
   box-shadow: 0 10px 20px rgba(50, 50, 50, .90);
@@ -69,6 +69,7 @@ body {
   }
 }
 
+<<<<<<< HEAD
 
  main{
   width: 70%;
@@ -142,4 +143,18 @@ aside div{
 
 .preview-notes{
   overflow-y: scroll;
+=======
+.btn {
+  position: absolute;
+  background-color: #236BBD;
+  color: white;
+  width: 70px;
+  height: 70px;
+  border: none;
+  border-radius: 60%;
+  right: 50px;
+  bottom: 60px;
+  font-size: 30px;
+
+>>>>>>> c6f222a025cc512cb8a46255ca12e45bc8782d9a
 }
