@@ -1,12 +1,5 @@
-function myFunction() {
-    let x = document.getElementById("myTopnav");
-    if (x.className === "topnav") {
-        x.className += " responsive";
-    } else {
-        x.className = "topnav";
-    }
-}
-/* var options = {
+
+ /*var options = {
     //debug: 'info',
     modules: {
         toolbar: '#toolbar'
@@ -15,8 +8,8 @@ function myFunction() {
     readOnly: false,
     theme: 'snow'
 };
-var editor = new Quill('#editor', options); */
-let toolbarOptions = [
+var editor = new Quill('#editor', options); 
+*/let toolbarOptions = [
     ["bold", "italic", "underline", "strike"],
     ["blockquote", "code-block"],
     [{ "header": [1, 2, 3, 4, 5, 6, false] }],
@@ -37,3 +30,14 @@ let quill = new Quill('#editor', {
     
     theme: 'snow'
 });
+
+function printDiv() { 
+    var divContents = document.getElementById("editor").innerHTML; 
+    var a = window.open('', '', 'height=500, width=500'); 
+    a.document.write('<html>'); 
+    a.document.write('<body >'); 
+    a.document.write(divContents); 
+    a.document.write('</body></html>'); 
+    a.document.close(); 
+    a.print(); 
+} 
