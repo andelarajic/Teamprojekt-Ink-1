@@ -3,7 +3,82 @@ body {
  background-color: #B3B3B3;
 }
 
-.header {
+.topnav {
+  background-color: #236BBD;
+  overflow: hidden;
+  width: 100%;
+  box-shadow: 0 10px 20px rgba(50, 50, 50, .90);
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 20px 30px;
+  text-decoration: none;
+  font-size: 40px;
+}
+
+.icon {
+  margin: 10px 20px;
+}
+
+.topnav .icon1 {
+  float: left;
+}
+
+.topnav .icon0 {
+  float: right;
+
+}
+
+.topnav .icon2 {
+  float: right;
+
+}
+
+.topnav .icon {
+  display: none;
+}
+
+@media screen and (max-width: 800px) {
+  .topnav a:not(:first-child) {
+    display: none;
+    font-size: 30px;
+    margin: 10px;
+  }
+
+
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+
+  .topnav .icon1 {
+    padding: 30px 30px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .topnav.responsive a.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+
+  }
+}
+
+
+main {
+  width: 70%;
+  height: 100vh;
   position: relative;
   font-size: 70px;
   text-decoration: none;
@@ -29,10 +104,137 @@ right: 10px;
 }
 
 .author {
-  padding: 5px ;
+  width: 50%;
+  height: 30px;
+  border: 1px solid black;
+  font-size: 1.5rem;
+  padding: 0 10px;
+  border-radius: 5px;
+
 }
-.preview-notes{
-  position: relative;
- top:100px;
-right: -40px;
+
+.editor {
+  border: 1px solid black;
+  border-radius: 10px;
+  height: 500px;
+  width: 100%;
+  outline: none;
+  background: #f4f4f4;
+  padding: 10px 10px;
+}
+
+
+
+.btn {
+  position: absolute;
+  background-color: #236BBD;
+  color: white;
+  width: 70px;
+  height: 70px;
+  border: none;
+  border-radius: 60%;
+  right: 50px;
+  bottom: 60px;
+  font-size: 30px;
+}
+
+.infoArFlex {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 550px;
+  width: 450px;
+  padding: 20px;
+  margin:auto;
+  margin-top: 50px;;
+  /* margin-top: 50px;
+  margin-left: 50px; */
+  text-align:justify;
+  box-shadow: 0 10px 20px rgba(50, 50, 50, .90);
+  background-color: #236BBD;
+}
+
+.button {
+  background: #428bca;
+  padding: 1em 2em;
+  color: #fff;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: #3876ac;
+}
+
+.modal {
+  /* display: none; */
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  margin: 10% auto;
+  width: 60%;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+  animation-name: modalopen;
+  animation-duration: var(--modal-duration);
+}
+
+.modal-header h2,
+.modal-footer h3 {
+  margin: 0;
+}
+
+.modal-header {
+  background: var(--modal-color);
+  padding: 15px;
+  color: #fff;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.modal-body {
+  padding: 10px 20px;
+  background: #fff;
+}
+
+.modal-footer {
+  background: var(--modal-color);
+  padding: 10px;
+  color: #fff;
+  text-align: center;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.close {
+  color: #ccc;
+  float: right;
+  font-size: 30px;
+  color: #fff;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@keyframes modalopen {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
