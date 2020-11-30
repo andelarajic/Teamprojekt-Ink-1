@@ -6,16 +6,7 @@ function myFunction() {
         x.className = "topnav";
     }
 }
-/* var options = {
-    //debug: 'info',
-    modules: {
-        toolbar: '#toolbar'
-    },
-    placeholder: 'Compose an epic...',
-    readOnly: false,
-    theme: 'snow'
-};
-var editor = new Quill('#editor', options); */
+
 let toolbarOptions = [
     ["bold", "italic", "underline", "strike"],
     ["blockquote", "code-block"],
@@ -34,6 +25,10 @@ let quill = new Quill('#editor', {
     modules: {
         toolbar: toolbarOptions
     },
-    
+    placeholder: 'Write your text here',
+    readOnly: false,
     theme: 'snow'
 });
+
+
+
