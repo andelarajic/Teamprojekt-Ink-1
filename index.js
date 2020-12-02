@@ -24,7 +24,14 @@ function outsideClick(e) {
         modal.style.display = 'none';
     }
 }
-
+function myFunction() {
+    let x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+        x.className += " responsive";
+    } else {
+        x.className = "topnav";
+    }
+}
 
  /*var options = {
     //debug: 'info',
@@ -54,12 +61,13 @@ let quill = new Quill('#editor', {
     modules: {
         toolbar: toolbarOptions
     },
-    placeholder: 'Write your text here',
-    readOnly: false,
+
     theme: 'snow'
 });
 
 function printDiv() {
+    window.print()
+    return;
     var divContents = document.getElementById("editor").innerHTML;
     var a = window.open('', '', 'height=500, width=500');
     a.document.write('<html>');
@@ -68,24 +76,4 @@ function printDiv() {
     a.document.write('</body></html>');
     a.document.close();
     a.print();
-};
-
-const editor = document.querySelector('.editor');
-const author = document.querySelector('.author');
-const title = document.querySelector('.title');
-const oldNotes = document.querySelector('.preview-notes');
-const save = document.querySelector('.save');
-
-save.addEventListener('click', () => { // vid klick på knappen försvinner texten
-    let savedText = editor.innerHTML;
-    let savedTitleText = title.innerHTML;
-    let savedAuthorText = author.innerHTML;
-    let savedAllText = document.createElement('DIV') // tilldelat en nyskapad div variabeln 'savedAllText'
-    editor.innerHTML = '';//  'textrutan' ska bli tom efter save
-    author.innerHTML = 'Author'; // Vad som ska stå vid 'author' efter save
-    title.innerHTML = 'Ny titel' // Vad som ska stå vid titeln efter save
-    savedAllText.innerHTML = `<h3>${savedTitleText}</h3> <p>${savedAuthorText}</p> <p>${savedText}</p>`; // variablerna för titel, author och editor tilldelas i en template. De läss in i den nyskapta divens variabel innehåll 'savedAllText.innerHTML'
-    oldNotes.appendChild(savedAllText); // till sidospalten('oldNotes') läggs nu till en html childoch det är min nyskapta DIV variabel 'savedAllText'
-
-});
-
+} 
