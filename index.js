@@ -76,4 +76,12 @@ function printDiv() {
     a.document.write('</body></html>');
     a.document.close();
     a.print();
-} 
+}
+function openNav() {
+    document.getElementById("sideNav").style.display = "block";
+}
+
+/* Close/hide the sidenav */
+function closeNav() {
+    document.getElementById("sideNav").style.display = "none";
+}
