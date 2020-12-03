@@ -30,9 +30,16 @@
   main {
     margin-left: 5rem;
     padding: 1rem;
+    
   }
 
+  #main {
+    transition: margin-left .5s;
+    padding: 20px;
+  }
+  
 .navbar {
+
   display: block;
  position: fixed;
   background-color: var(--bg-primary);
@@ -41,9 +48,8 @@
 }
 
 .header {
-  
   margin-left: 60px;
-  position: abso;
+  position: absolute;
   font-size: 70px;
   text-decoration: none;
   color: black;
