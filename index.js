@@ -1,6 +1,5 @@
 // Get DOM Elements
 const modal = document.querySelector('#my-modal');
-const modalBtn = document.querySelector('#modal-btn');
 const closeBtn = document.querySelector('.close');
 
 const inpTitle = document.querySelector('.title');
@@ -24,7 +23,7 @@ navUL.addEventListener('mouseleave', function (evt) {
     mainDIV.style = "";
 })
 // Events
-modalBtn.addEventListener('click', openModal);
+
 closeBtn.addEventListener('click', closeModal);
 window.addEventListener('click', outsideClick);
 
@@ -113,7 +112,7 @@ function closeNav() {
     notesArr.push(noteInfo);
     saveNotes();
     */
-   function saveNotes() {
+function saveNotes() {
     localStorage.setItem('notesArr', JSON.stringify(notesArr))
 }
 function renderNotesList(arr) {
@@ -127,7 +126,7 @@ function setActiveNoteID(id) {
     activeNoteID = id;
 }
 
-   function createNote() {
+function createNote() {
     let noteObj = {
         id: Date.now(),
         title: inpTitle.value,

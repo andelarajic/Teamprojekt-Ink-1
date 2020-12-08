@@ -76,40 +76,35 @@
   </nav>
   <div id="main">
     <aside>
-      <section class="preview-notes">
-        <ul class="note-list"></ul>
-        
-        <div>
-          <h3>LOREM</h3>
-          <p>Lorem ipsum dolor sit ame...</p>
-          <p>datum</p>
-        </div>
-        <div class="active-div">
-          <h3 class="pre-title">LOREM</h3>
-          <p class="pre-text">Lorem ipsum dolor sit ame...</p>
-          <p class="pre-date">datum</p>
 
-        </div>
+      <section class="preview-notes">
+        <form>
+          <input type="text" placeholder="Search.." name="search">
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+        <ul class="note-list"></ul>
+
       </section>
     </aside>
     <main>
 
-      <div class="wrapper"> <!-- Fråga Kristian varför placeholder inte fungerar -->
+      <div class="wrapper">
+        <!-- Fråga Kristian varför placeholder inte fungerar -->
         <div class="title" contentEditable="true" data-text="Enter title here" spellcheck="false">Title</div>
-        
+
 
         <div id="toolbar">
 
           <input type="button" value="print" onclick="printDiv()">
           <input type="button" class="saveBtn" value="save">
-          <form class="example" action="action_page.php">
-            <input type="text" placeholder="Search.." name="search">
-            <button type="submit"><i class="fa fa-search"></i></button>
+
+
+
           </form>
         </div>
         <div id="editor"></div>
       </div>
-      <button id="modal-btn" class="button">Click Here</button> //fråga kristian
+
       <div id="my-modal" class="modal">
         <div class="modal-content">
           <div class="modal-header">
@@ -151,4 +146,5 @@
   </div>
   </div>
 </body>
+
 </html>
