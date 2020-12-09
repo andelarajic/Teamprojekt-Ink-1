@@ -75,7 +75,7 @@
     </ul>
   </nav>
   <div id="main">
-    <aside>
+    <aside class="asideFlex">
 
       <section class="preview-notes">
         <form>
@@ -89,29 +89,23 @@
     <main>
 
       <div class="wrapper">
-        <!-- Fråga Kristian varför placeholder inte fungerar -->
-        <div class="title" contentEditable="true" data-text="Enter title here" spellcheck="false">Title</div>
-
-
         <div id="toolbar">
-
-          <input type="button" value="print" onclick="printDiv()">
-          <input type="button" class="saveBtn" value="save">
-
-
-
+          <form>
+            <input class="btn" type="button" value="print" onclick="printDiv()">
+            <input type="button" class="saveBtn" value="save">
           </form>
         </div>
+        <div class="title" contentEditable="true" data-text="Enter title here" spellcheck="false"></div>
         <div id="editor"></div>
       </div>
 
-      <div id="my-modal" class="modal">
-        <div class="modal-content">
-          <div class="modal-header">
+      <div id="jsPopup" class="popup">
+        <div class="insidePopup">
+          <div class="popupHeader">
             <span class="close">&times;</span>
             <h2>About Quire</h2>
           </div>
-          <div class="modal-body">
+          <div class="popupBody">
             <p>Hej och välkommen till Quire! Quire är en multifunktionell anteckningsbok som fungerar direkt i
               webbläsaren.
               Den första versionen av
@@ -137,14 +131,16 @@
 
             <p>Och självklart så kan du skriva ut dina anteckningar i pappers format :)</p>
           </div>
-          <div class="modal-footer">
+          <div class="popupFooter">
             <h3>Tack för oss och njut av besöket!</h3>
           </div>
         </div>
       </div>
+
     </main>
   </div>
   </div>
+
 </body>
 
 </html>

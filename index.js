@@ -1,5 +1,5 @@
 // Get DOM Elements
-const modal = document.querySelector('#my-modal');
+const popup = document.querySelector('#jsPopup');
 const closeBtn = document.querySelector('.close');
 
 const inpTitle = document.querySelector('.title');
@@ -14,6 +14,14 @@ const noteList = document.querySelector(".note-list");
 let notesArr = JSON.parse(localStorage.getItem("notesArr"))
 let activeNoteID;
 
+if (!notesArr) {
+    notesArr = []
+}
+
+notesArr.forEach(note => {
+    savedAtSideNav(note.title, note.text)
+});
+
 navUL.addEventListener('mouseenter', function (evt) {
     //console.log("MOUSE is on nav!")
     mainDIV.style = "margin-left: 200px;"
@@ -24,23 +32,23 @@ navUL.addEventListener('mouseleave', function (evt) {
 })
 // Events
 
-closeBtn.addEventListener('click', closeModal);
+closeBtn.addEventListener('click', closePopup);
 window.addEventListener('click', outsideClick);
 
 // Open
-function openModal() {
-    modal.style.display = 'block';
+function openPopup() {
+    popup.style.display = 'block';
 }
 
 // Close
-function closeModal() {
-    modal.style.display = 'none';
+function closePopup() {
+    popup.style.display = 'none';
 }
 
 // Close If Outside Click
 function outsideClick(e) {
-    if (e.target == modal) {
-        modal.style.display = 'none';
+    if (e.target == popup) {
+        popup.style.display = 'none';
     }
 }
 function myFunction() {
@@ -112,9 +120,14 @@ function closeNav() {
     notesArr.push(noteInfo);
     saveNotes();
     */
+
+
 function saveNotes() {
     localStorage.setItem('notesArr', JSON.stringify(notesArr))
 }
+
+
+
 function renderNotesList(arr) {
     noteList.innerHTML = '';
     arr.forEach(function (note) {
@@ -129,8 +142,7 @@ function setActiveNoteID(id) {
 function createNote() {
     let noteObj = {
         id: Date.now(),
-        title: inpTitle.value,
-        author: '',
+        title: inpTitle.innerText,
         content: quill.getContents(),
         text: quill.getText(),
         favourite: false
@@ -138,44 +150,42 @@ function createNote() {
     notesArr.push(noteObj);
     saveNotes();
     setActiveNoteID(noteObj.id);
-    renderNotesList(notesArr);
+    /* renderNotesList(notesArr); */
 }
 
 saveBtn.onclick = function () {
-    const savedTitle = inpTitle.innerHTML; //varför .innerHTML och inte .value
-    const savedEditor = inpEditor.innerHTML;
+    const savedTitle = inpTitle.innerText; //varför .innerHTML och inte .value
+    const savedEditor = quill.getText();
+    createNote()
+    savedAtSideNav(savedTitle, savedEditor)
 
-
-    if (savedTitle && savedEditor) {
-        localStorage.setItem(activeNoteID, JSON.stringify({ title: savedTitle, content: savedEditor }));
-        location.reload();
-    }
 };
-saveBtn.addEventListener('click', function () {
+
+function savedAtSideNav(savedTitleText, savedText) {
+    /*   let savedText = quill.getText();
+      let savedTitleText = inpTitle.innerHTML; */
+    let savedAllText = `${savedTitleText} ${savedText}`
+    let list = document.createElement('li')
+    list.innerHTML = savedAllText
+
+    noteList.appendChild(list);
+};
+
+/* function fromStorage() {
+
+    let notesArrStr = localStorage.getItem(activeNoteID, JSON.stringify({ title: savedTitle, content: savedEditor }));
+    if (!notesArrStr) {
+        return;
+    }
+    notesArr = JSON.parse(notesArrStr);
+    savedAtSideNav()
+}; */
+
+/* saveBtn.addEventListener('click', function () {
     console.log("cNB func ran");
     createNote();
     renderNotesList(notesArr);
 })
-
-
-/*save.addEventListener('click', () => { // vid klick på knappen försvinner texten
-    let savedText = editor.innerHTML;
-    let savedTitleText = title.innerHTML;
-    let savedAuthorText = author.innerHTML;
-    let savedAllText = document.createElement('DIV') // tilldelat en nyskapad div variabeln 'savedAllText'
-    editor.innerHTML = '';//  'textrutan' ska bli tom efter save
-    author.innerHTML = 'Author'; // Vad som ska stå vid 'author' efter save
-    title.innerHTML = 'Ny titel' // Vad som ska stå vid titeln efter save
-    savedAllText.innerHTML = `<h3>${savedTitleText}</h3> <p>${savedAuthorText}</p> <p>${savedText}</p>`; // variablerna för titel, author och editor tilldelas i en template. De läss in i den nyskapta divens variabel innehåll 'savedAllText.innerHTML'
-    oldNotes.appendChild(savedAllText); // till sidospalten('oldNotes') läggs nu till en html childoch det är min nyskapta DIV variabel 'savedAllText'
-
-})*/
-
-
-/*noteList.addEventListener('click', function (evt) {
-    let clickedLI = evt.target.closest('li');
-    let clickedID = clickedLI.getAttribute('data-id');
-    setEditor(readNote(clickedID));
-})*/
+ */
 
 
