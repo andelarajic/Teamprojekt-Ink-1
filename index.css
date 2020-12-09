@@ -254,21 +254,12 @@
  
 
 
-.button {
-  background: #428bca;
-  padding: 1em 2em;
-  color: #fff;
-  border: 0;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
 .button:hover {
   background: #3876ac;
 }
 
 .modal {
-  display: none; 
+  /*display: none; */
   position: fixed;
   z-index: 1;
   left: 0;
@@ -364,7 +355,7 @@ right: 10px;
 
 .preview-notes{
   position: relative;
- top:100px;
+ top:0;
 right: -40px;
 }
 @media print {
