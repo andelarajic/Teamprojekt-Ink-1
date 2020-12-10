@@ -254,67 +254,56 @@
  
 
 
+
+
 .button:hover {
   background: #3876ac;
 }
 
-.modal {
-  /*display: none; */
+.popup {
+  /* display: none; */ 
   position: fixed;
   z-index: 1;
   left: 0;
   top: 0;
   height: 100%;
   width: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.5);
+  /* overflow: auto; */
+  background-color: rgba(0, 0, 0, 0.9);
 }
 
-.modal-content {
+.insidePopup {
   margin: 10% auto;
   width: 60%;
-  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+  /* box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
   animation-name: modalopen;
-  animation-duration: var(--modal-duration);
+  animation-duration: var(--modal-duration); */
 }
 
-.modal-header h2,
-.modal-footer h3 {
+.popupHeader h2,
+.popupFooter h3 {
   margin: 0;
-}
-
-.modal-header {
-  background: var(--modal-color);
-  padding: 15px;
-  color: #fff;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-}
-
-.modal-body {
-  padding: 10px 20px;
-  background: #fff;
-}
-
-.modal-footer {
-  background: var(--modal-color);
-  padding: 10px;
-  color: #fff;
+  color: #ff7eee;
   text-align: center;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
+  padding:5px;
+}
+
+.popupBody {
+  padding: 10px 20px;
+  background: rgb(242, 238, 238);;
+  
 }
 
 .close {
-  color: #ccc;
+  color: rgb(208, 195, 195);
   float: right;
-  font-size: 30px;
+  font-size: 20px;
   color: #fff;
 }
 
 .close:hover,
 .close:focus {
-  color: #000;
+  color: #ff7eee;
   text-decoration: none;
   cursor: pointer;
 }
@@ -344,20 +333,55 @@ position: relative;
 top:-200px;
 right: 10px;
 }
+
 #editor {
   height: 650px;
+  outline:none;
+  border-style: none; 
+  border-color: Transparent; 
+  overflow: auto; 
+  all: none; 
+  box-shadow: none;
 }
 
+
+
 .title {
+  margin: 10px;
   padding: 5px;
+  outline: none;
+}
+.saveBtn {
+float: right;
+padding: 10px;
+margin: 5px;
+border: 2px solid #ff7eee;
+letter-spacing:1px;
+border-radius: 5px;
+cursor: pointer;
+}
+
+.btn{
+  float: right;
+  padding: 10px;
+  margin: 5px;
+  border: 2px solid #ff7eee;
+  letter-spacing:1px;
+  border-radius: 5px;
+  cursor: pointer;
+};
+.asideFlex{
+  display:flex;
+  justify-content: left;
   
 }
 
 .preview-notes{
   position: relative;
- top:0;
+ top:0px;
 right: -40px;
 }
+
 @media print {
   /* styles go here */
   section {
@@ -374,3 +398,62 @@ right: -40px;
  [contentEditable=true]:empty:not(:focus):before{
   content:attr(data-text)
 }
+
+
+
+
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+  background-color: #fafafa;
+	display: flex;
+	height: 100vh;
+	margin: 0;
+	transition: background 0.2s linear;
+}
+
+body.dark {
+  background: #292C35;
+  color:white;
+}
+
+.checkbox {
+	opacity: 0;
+  position: relative;
+  
+}
+
+.label {
+  background-color: #111;
+  float: right;
+	border-radius: 50px;
+  cursor: pointer;
+	display: flex;
+	position: relative;
+	height: 26px;
+	width: 50px;
+	transform: scale(0.8);
+}
+
+.label .ball {
+	background-color: #fff;
+	border-radius: 50%;
+	position: relative;
+	top: 2px;
+	left: 2px;
+	height: 22px;
+	width: 22px;
+	transform: translateX(0px);
+	transition: transform 0.2s linear;
+}
+
+.checkbox:checked + .label .ball {
+	transform: translateX(24px);
+}
+
+
+
