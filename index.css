@@ -251,33 +251,23 @@
   bottom: 60px;
   font-size: 30px;
 }*/
- 
-
-
-
-
-.button:hover {
-  background: #3876ac;
-}
 
 .popup {
-  /* display: none; */ 
+  display: none;
   position: fixed;
   z-index: 1;
   left: 0;
   top: 0;
   height: 100%;
   width: 100%;
-  /* overflow: auto; */
+  
   background-color: rgba(0, 0, 0, 0.9);
 }
 
 .insidePopup {
-  margin: 10% auto;
-  width: 60%;
-  /* box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
-  animation-name: modalopen;
-  animation-duration: var(--modal-duration); */
+  margin: 8% auto;
+  width: 80%;
+ 
 }
 
 .popupHeader h2,
@@ -361,6 +351,16 @@ border-radius: 5px;
 cursor: pointer;
 }
 
+.saveBtn{
+  float: right;
+  padding: 10px;
+  margin: 5px;
+  border: 2px solid #ff7eee;
+  letter-spacing:1px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 .btn{
   float: right;
   padding: 10px;
@@ -373,7 +373,7 @@ cursor: pointer;
 .asideFlex{
   display:flex;
   justify-content: left;
-  
+
 }
 
 .preview-notes{
