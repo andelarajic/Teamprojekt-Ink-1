@@ -15,18 +15,6 @@
     padding: 0;
   }
 
-  body::-webkit-scrollbar {
-    width: 0.25rem;
-  }
-
-  body::-webkit-scrollbar-track {
-    background: #1e1e24;
-  }
-
-  body::-webkit-scrollbar-thumb {
-    background: #6649b8;
-  }
-
   main {
     margin-left: 5rem;
     padding: 1rem;
@@ -72,14 +60,21 @@
   align-items: center;
   height: 100%;
 }
+.navButton {
+  align-self: flex-start;
+  margin-top: auto;
+  margin-bottom: 20px;
+  
+
+}
 
 .nav-item {
   width: 100%;
 }
 
-.nav-item:last-child {
+/*.nav-item:last-child {
   margin-top: auto;
-}
+}*/
 
 .nav-link {
   display: flex;
@@ -238,20 +233,6 @@
 
 
 
-
- /*.btn {
-  position: absolute;
-  background-color: #236BBD;
-  color: white;
-  width: 70px;
-  height: 70px;
-  border: none;
-  border-radius: 60%;
-  right: 50px;
-  bottom: 60px;
-  font-size: 30px;
-}*/
-
 .popup {
   display: none;
   position: fixed;
@@ -306,22 +287,18 @@
     opacity: 1;
   }
 }
-/*.header {
-  margin-left: 60px;
-  position: fixed;
-  font-size: 70px;
-  text-decoration: none;
-  color: black;
- top:50px;
- left: 50px;
-}*/
+
+.searchField {
+  display: flex;
+  margin-left:100px;
+
+}
 
 .wrapper {
-width: 70%;
+width: 50%;
 float: right;
 position: relative;
-top:-200px;
-right: 10px;
+
 }
 
 #editor {
@@ -341,21 +318,13 @@ right: 10px;
   padding: 5px;
   outline: none;
 }
-.saveBtn {
-float: right;
-padding: 10px;
-margin: 5px;
-border: 2px solid #ff7eee;
-letter-spacing:1px;
-border-radius: 5px;
-cursor: pointer;
-}
+
 
 .saveBtn{
   float: right;
   padding: 10px;
   margin: 5px;
-  border: 2px solid #ff7eee;
+  border: none;
   letter-spacing:1px;
   border-radius: 5px;
   cursor: pointer;
@@ -365,21 +334,20 @@ cursor: pointer;
   float: right;
   padding: 10px;
   margin: 5px;
-  border: 2px solid #ff7eee;
+  border: none;
   letter-spacing:1px;
   border-radius: 5px;
   cursor: pointer;
 };
-.asideFlex{
-  display:flex;
-  justify-content: left;
 
-}
 
 .preview-notes{
+  display: flex;
+  justify-content: column;
+  align-items: flex-end;
   position: relative;
  top:0px;
-right: -40px;
+
 }
 
 @media print {
@@ -389,10 +357,6 @@ right: -40px;
   }
  }
 
- .preview-notes {
-
-   padding: 120px;
- }
 
  /* placeholder */
  [contentEditable=true]:empty:not(:focus):before{
@@ -410,7 +374,7 @@ right: -40px;
 
 body {
   background-color: #fafafa;
-	display: flex;
+	
 	height: 100vh;
 	margin: 0;
 	transition: background 0.2s linear;
