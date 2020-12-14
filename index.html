@@ -33,7 +33,7 @@
         </a>
       </li>
 
-     <li class="nav-item">
+      <li class="nav-item">
         <a href="#" class="nav-link">
           <svg class="svg-icon" viewBox="0 0 20 20">
             <path
@@ -42,7 +42,7 @@
           </svg>
           <span class="link-text">Favorit</span>
         </a>
-     </li>
+      </li>
       <li class="nav-item">
         <a href="#" class="nav-link">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-labelledby="title" aria-describedby="desc"
@@ -56,84 +56,88 @@
           </svg>
 
 
-        <span class="link-text">Information</span>
+          <span class="link-text">Information</span>
         </a>
       </li>
 
-   <li class="navButton" id="themeButton"> 
-     
-      <input type="checkbox" class="checkbox" id="chk"/>
-      <label class="label" for="chk">
-        <div class="ball"></div>
-        
-        
-      </label>
-    </li> 
+      <li class="navButton" id="themeButton">
+
+        <input type="checkbox" class="checkbox" id="chk" />
+        <label class="label" for="chk">
+          <div class="ball"></div>
+
+
+        </label>
+      </li>
   </nav>
   <div id="main">
-    
 
-      <section class="preview-notes">
-       
-          <input class="searchField" type="text" placeholder="Search.." name="search">
-          <button type="submit"><i class="fa fa-search"></i></button>
-        
-        <ul class="note-list"></ul>
 
-      </section>
-    </aside>
-    <main>
+    <section class="preview-notes">
 
-      <div class="wrapper">
-        <div id="toolbar">
-          <form>
-            <input class="btn" type="button" value="print" onclick="printDiv()">
-            <input type="button" class="saveBtn" value="save">
-          </form>
-        </div>
-        <div class="title" contentEditable="true" data-text="Enter title here" spellcheck="false"></div>
-        <div id="editor"></div>
+      <input class="searchField" type="text" placeholder="Search.." name="search">
+      <button class="searchButton" type="submit"><i class="fa fa-search"></i></button>
+
+      <button type="button" class="savedNotes">saved notes</button>
+      <ul class="note-list"></ul>
+
+  </div>
+
+
+  </section>
+
+  <!--  <main> -->
+
+  <div class="wrapper">
+    <div id="toolbar">
+      <form>
+        <input class="btn" type="button" value="print" onclick="printDiv()">
+        <input type="button" class="saveBtn" value="save">
+      </form>
+    </div>
+    <div class="title" contentEditable="true" data-text="Enter title here" spellcheck="false"></div>
+    <div id="editor"></div>
+  </div>
+
+  <div id="jsPopup" class="popup">
+    <div class="insidePopup">
+      <div class="popupHeader">
+        <span class="close">&times;</span>
+        <h2>About Quire</h2>
       </div>
+      <div class="popupBody">
+        <p>Hej och välkommen till Quire! Quire är en multifunktionell anteckningsbok som fungerar direkt i
+          webbläsaren.
+          Den första versionen av
+          tjänsten sparar alla anteckningar lokalt i datorn/webbläsaren och har alltså ingen server eller
+          backend. Som
+          användare på Quire så kan du skapa flera olika anteckningar i din
+          anteckningsbok.</p>
 
-      <div id="jsPopup" class="popup">
-        <div class="insidePopup">
-          <div class="popupHeader">
-            <span class="close">&times;</span>
-            <h2>About Quire</h2>
-          </div>
-          <div class="popupBody">
-            <p>Hej och välkommen till Quire! Quire är en multifunktionell anteckningsbok som fungerar direkt i
-              webbläsaren.
-              Den första versionen av
-              tjänsten sparar alla anteckningar lokalt i datorn/webbläsaren och har alltså ingen server eller
-              backend. Som
-              användare på Quire så kan du skapa flera olika anteckningar i din
-              anteckningsbok.</p>
+        <p>Du kan i varje anteckning som du skapar skriva så mycket text som du önskar samt så kan du
+          formatera
+          denna fritt
+          med enklare formatering såsom rubriker, punktlistor fetstil osv.</p>
 
-            <p>Du kan i varje anteckning som du skapar skriva så mycket text som du önskar samt så kan du
-              formatera
-              denna fritt
-              med enklare formatering såsom rubriker, punktlistor fetstil osv.</p>
+        <p>För anteckingar som är viktiga för dig så kan du favoritmarkera dom anteckningar för att kunna
+          hitta
+          dem
+          enklare i din meny.</p>
 
-            <p>För anteckingar som är viktiga för dig så kan du favoritmarkera dom anteckningar för att kunna
-              hitta
-              dem
-              enklare i din meny.</p>
+        <p>Ifall du skulle vilja så finns det inställningar kring val av typsnitt och färger för
+          applikationen
+          som
+          helhet och kan på så sätt göra Quire till din personliga app.</p>
 
-            <p>Ifall du skulle vilja så finns det inställningar kring val av typsnitt och färger för
-              applikationen
-              som
-              helhet och kan på så sätt göra Quire till din personliga app.</p>
-
-            <p>Och självklart så kan du skriva ut dina anteckningar i pappers format :)</p>
-          </div>
-          <div class="popupFooter">
-            <h3>Tack för oss och njut av besöket!</h3>
-          </div>
-        </div>
+        <p>Och självklart så kan du skriva ut dina anteckningar i pappers format :)</p>
       </div>
+      <div class="popupFooter">
+        <h3>Tack för oss och njut av besöket!</h3>
+      </div>
+    </div>
+  </div>
 
-    </main>
+  <!-- </main> -->
   </div>
   </div>
 

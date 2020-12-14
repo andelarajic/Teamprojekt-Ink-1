@@ -23,7 +23,9 @@
 
   #main {
     transition: margin-left .5s;
-    padding: 20px;
+    width: 200px;
+    margin: 0px;
+    padding: 0px;
   }
   
 .navbar {
@@ -288,14 +290,60 @@
   }
 }
 
-.searchField {
+.preview-notes{
   display: flex;
-  margin-left:100px;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  top:0px;
+  width: 300px;
 
 }
 
+.searchField {
+  
+  margin-left:100px;
+
+}
+.searchButton{
+
+  margin-left:100px;
+}
+
+/* Style the button that is used to open and close the collapsible content */
+.savedNotes {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 200px;
+  border: none;
+  border-radius: 3%;
+  text-align: center;
+  outline: none;
+  font-size: 15px;
+  margin-left: 100px;
+  margin-top: 70px;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .savedNotes:hover {
+  background-color: #ccc;
+}
+
+/* Style the collapsible content. Note: hidden by default */
+.note-list {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+  width: 200px;
+  margin-left: 100px;
+}
+
+
 .wrapper {
-width: 50%;
+width: 75%;
 float: right;
 position: relative;
 
@@ -340,15 +388,6 @@ position: relative;
   cursor: pointer;
 };
 
-
-.preview-notes{
-  display: flex;
-  justify-content: column;
-  align-items: flex-end;
-  position: relative;
- top:0px;
-
-}
 
 @media print {
   /* styles go here */

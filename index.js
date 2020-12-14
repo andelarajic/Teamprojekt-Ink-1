@@ -10,6 +10,7 @@ const navUL = document.querySelector('.navbar-nav');
 const mainDIV = document.querySelector('#main');
 const favBtn = document.querySelector('.favSecBtn');
 const noteList = document.querySelector(".note-list");
+/* const savedNotes = document.querySelector('.savedNotes') */
 
 let notesArr = JSON.parse(localStorage.getItem("notesArr"))
 let activeNoteID;
@@ -74,20 +75,45 @@ function noteObjToHTML(noteObj) {
     return LI
 }
 
-noteList.addEventListener('click', function (sideBar) {
+let savedNotes = document.getElementsByClassName("savedNotes");
+let i;
+
+/* savedNotes.addEventListener('click', function () {
+    if (noteList.style.display === "none") {
+        noteList.style.display = "block";
+    } else {
+        noteList.style.display = "none";
+    }
+}) */
+
+for (i = 0; i < savedNotes.length; i++) {
+    savedNotes[i].addEventListener("click", function () {
+        let content = this.nextElementSibling;
+        if (content.style.display === "block") {
+            content.style.display = "none";
+        } else {
+            content.style.display = "block";
+        }
+    });
+
+}
+
+
+
+/* noteList.addEventListener('click', function (sideBar) {
     if (sideBar.target && sideBar.target.id == 'brnPrepend') {
         inpTitle.innerText = notesArr.find(note => note.id == id).title
         let noteObj = inpTitle.innerText;
         noteObj.favourite = !noteObj.favourite;
     }
-});
+}); */
 
-function toggleFav(id) {
+/* function toggleFav(id) {
     inpTitle.innerText = notesArr.find(note => note.id == id).title
     let noteObj = inpTitle.innerText;
     noteObj.favourite = !noteObj.favourite;
-    /* saveNotes(); */
-}
+    saveNotes();
+} */
 
 /* quill.setContents(notesArr[0].content)
 inpTitle.innerText = notesArr.find(note => note.id == id).title */
