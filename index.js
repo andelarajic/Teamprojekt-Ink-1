@@ -4,127 +4,186 @@ const closeBtn = document.querySelector('.close');
 
 const inpTitle = document.querySelector('.title');
 const inpEditor = document.getElementById('editor');
-const saveBtn = document.querySelector('.saveBtn');
 const lsOutput = document.querySelector('.lsOutput');
 const navUL = document.querySelector('.navbar-nav');
 const mainDIV = document.querySelector('#main');
 const favBtn = document.querySelector('.favSecBtn');
-const noteList = document.querySelector(".note-list");
-/* const savedNotes = document.querySelector('.savedNotes') */
+const noteListElement = document.querySelector(".note-list");
 
-let notesArr = JSON.parse(localStorage.getItem("notesArr"))
-let activeNoteID;
+//Hämta alla notes som finns sparade i local-storage
+let notes = JSON.parse(localStorage.getItem("notes"))
+//ID på den note som för tillfället används
+let currentNoteId = generate_UUID()
 
-if (!notesArr) {
-    notesArr = []
+//Om inget finns i notes från steget ovan så gör notes till en tom lista/array annars rendera notes
+if (!notes) {
+    notes = []
+} else {
+    renderNotes(notes)
 }
 
-notesArr.forEach(note => {
-    savedAtSideNav(note.title, note.text)
+console.log("currentNoteId: " + currentNoteId) //TODO ta bort
 
-});
+function createNote() {
+    console.log("title: " + inpTitle.innerText.length + ", text: " + inpTitle.innerText.length + ", number of notes: " + notes.length) //TODO ta bort
+   /* var x = inpTitle.innerText;
+    if (x == "" || x.length <= 15) {
+        alert("You need to fill out the name field properly");
+        return false;*/
+    //Skapa upp en Note med hjälp av fält från HTML
+    if(inpTitle.innerText.length < 1 && quill.getText.length < 1) return //Detta för att inte kunna skapa en note utan titel eller text
 
+    const noteExists = notes.length > 0 ? isNoteIdInList(notes, currentNoteId) : false;
 
-
-function saveNotes() {
-    localStorage.setItem('notesArr', JSON.stringify(notesArr))
+    console.log("Does note exist: " + noteExists)
+    
+    if(noteExists){
+        notes.forEach(note => {
+            console.log("searching for note with id: " + currentNoteId + ", currently at note: " + note.id)
+            if(note.id == currentNoteId) {
+                console.log("Note with searched id found: " + currentNoteId)
+                note.date = new Date().toUTCString()
+                note.title = inpTitle.innerText
+                note.text = quill.getText()
+            }
+        })
+    } else {
+        console.log("No Note with searched id: "+ currentNoteId + " found, creating a new note")
+        currentNoteId = generate_UUID()
+        var note = {
+            id: currentNoteId,
+            date: new Date().toUTCString(),
+            title: inpTitle.innerText,
+            text: quill.getText(),
+            favourite: false
+        }
+        //Lägg till den precis skapade note'en till listan notes
+        console.log("Pushing note to list: " + JSON.stringify(note))
+        notes.push(note);
+    }
+    //Spara den nya notes listan till local-storage
+    saveNotesToLocalStorage(notes);
+    //Rendera den nya listan
+    renderNotes(notes);
 }
 
-function renderNotesList(arr) {
-    noteList.innerHTML = '';
-    arr.forEach(function (note) {
-        noteList.appendChild(noteObjToHTML(note));
+//Lägg till/Skriv över notes
+function saveNotesToLocalStorage(notes) {    
+    //Omvandlar notes till JSON-format och sparar sedan ner innehållet till local-storage med nyckeln notes
+    localStorage.setItem('notes', JSON.stringify(notes))
+}
 
+//Rita ut notes i HTML
+function renderNotes(notes) {
+    //Rensa det som för tillfället visas för användaren
+    noteListElement.innerHTML = '';
+    //För varje note i listan notes
+    notes.forEach(note => {
+        //Gör om javascripts note till HTML note, lägg sedan till det som ett child på note-list elemetet i HTML
+        noteListElement.appendChild(noteToHTML(note));
     })
 }
 
-function setActiveNoteID(id) {
-    activeNoteID = id;
-}
-
-function createNote() {
-    let noteObj = {
-        id: Date.now(),
-        title: inpTitle.innerText,
-        content: quill.getContents(),
-        text: quill.getText(),
-        favourite: false
+//Gör om note i javascript till HTML format
+function noteToHTML(note) {
+    //Skapa ett list-item
+    let container = document.createElement('div');
+    //Lägg till id från note som data-id attribut
+    container.setAttribute('data-id', note.id);
+    //Lägg till den skapade html note strukturen som list-items innre presentation
+    container.innerHTML = noteHtmlStructure(note)
+    container.onclick = function () {
+        currentNoteId = note.id
+        inpTitle.innerText = note.title
+        quill.setText(note.text)
     }
-    notesArr.push(noteObj);
-    saveNotes();
-    setActiveNoteID(noteObj.id);
-    /* renderNotesList(notesArr); */
+    return container
 }
 
-function savedAtSideNav(savedTitleText, savedText) {
-    /*   let savedText = quill.getText();
-      let savedTitleText = inpTitle.innerHTML; */
-    let savedAllText = `${savedTitleText} ${savedText}`
-    let list = document.createElement('li')
-    list.innerHTML = savedAllText
-
-    noteList.appendChild(list);
-    noteList.style.listStyleType = 'none';
-};
-
-function noteObjToHTML(noteObj) {
-    // givet ett noteObj IN, returnera HTML
-    let LI = document.createElement('li');
-    LI.setAttribute('data-id', noteObj.id);
-    LI.innerHTML = `<span>${noteObj.title}</span><p>${noteObj.text}</p>`
-    return LI
+//Med hjälp av javascript note, returnera strukturerat html för en note
+function noteHtmlStructure(note) {
+    //Bygger upp en note som ska presenteras för användaren i HTML format
+    return `<div class="card"><div class="remove"></div><p class="left"><b>${shortenText(note.title, 15)}</b><span class="right">${note.date}</span></p><p>${shortenText(note.text, 200)}</p></div>`
 }
 
-let savedNotes = document.getElementsByClassName("savedNotes");
-let i;
-
-/* savedNotes.addEventListener('click', function () {
-    if (noteList.style.display === "none") {
-        noteList.style.display = "block";
-    } else {
-        noteList.style.display = "none";
+//Om text behöver kortas ner så gör det och lägg till "..." på slutet för att indikera att det finns mer text 
+function shortenText(text, characters) {
+    if (text.length > characters) {
+        text = text.substring(0, characters)+'...';
     }
-}) */
+    return text
+}
 
-for (i = 0; i < savedNotes.length; i++) {
-    savedNotes[i].addEventListener("click", function () {
-        let content = this.nextElementSibling;
-        if (content.style.display === "block") {
-            content.style.display = "none";
-        } else {
-            content.style.display = "block";
-        }
+//Funktion för att generera ett unikt id som används vi skapande av note.
+function generate_UUID(){
+    var dt = new Date().getTime();
+    var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        var r = (dt + Math.random()*16)%16 | 0;
+        dt = Math.floor(dt/16);
+        return (c=='x' ? r :(r&0x3|0x8)).toString(16);
     });
-
+    return uuid;
 }
 
+//Kolla om currentNoteId finns i listan av notes
+function isNoteIdInList(notes, id){
+    var exists = false
+    notes.forEach(note => {
+        console.log("noteId: "+ note.id + " - currentNodeId: " + id)
+        if(note.id == id) {
+            exists = true
+        }
+    })
+    return exists;
+}
 
+//Rensa title, text och generera ett nytt currentNoteId
+function clearEditor(){
+    currentNoteId = generate_UUID()
+    inpTitle.innerText = ""
+    quill.setText("")
+}
 
-/* noteList.addEventListener('click', function (sideBar) {
+function removeNote(id){
+    console.log(id)
+}
+
+//Lägg till en on click på knappen bara som kör createNote
+function saveNote() {
+    createNote()
+    clearEditor()
+}
+
+function removeNote() {
+    var noteExists = isNoteIdInList(notes, currentNoteId);
+    if(noteExists){
+        for(var i = 0; i < notes.length; i++){
+            if(notes[i].id == currentNoteId){
+                notes.splice(i, 1);
+            }
+        }
+        saveNotesToLocalStorage(notes);
+        renderNotes(notes);
+        clearEditor()
+    } else {
+        clearEditor()
+    }
+}
+
+noteListElement.addEventListener('click', function (sideBar) {
     if (sideBar.target && sideBar.target.id == 'brnPrepend') {
         inpTitle.innerText = notesArr.find(note => note.id == id).title
         let noteObj = inpTitle.innerText;
         noteObj.favourite = !noteObj.favourite;
     }
-}); */
+});
 
-/* function toggleFav(id) {
+function toggleFav(id) {
     inpTitle.innerText = notesArr.find(note => note.id == id).title
     let noteObj = inpTitle.innerText;
     noteObj.favourite = !noteObj.favourite;
-    saveNotes();
-} */
-
-/* quill.setContents(notesArr[0].content)
-inpTitle.innerText = notesArr.find(note => note.id == id).title */
-
-saveBtn.onclick = function () {
-    const savedTitle = inpTitle.innerText;
-    const savedEditor = quill.getText();
-    createNote()
-    savedAtSideNav(savedTitle, savedEditor)
-
-};
+    /* saveNotes(); */
+}
 
 //POPUP Funktioner 
 // Events

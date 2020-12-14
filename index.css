@@ -8,49 +8,30 @@
   --transition-speed: 600ms;
 }
 
-  body {
-    color: black;
-    background-color: white;
-    margin: 0;
-    padding: 0;
-  }
+body {
+  color: black;
+  background-color: white;
+  margin: 0;
+  padding: 0;
+}
 
-  main {
-    margin-left: 5rem;
-    padding: 1rem;
-    
-  }
-
-  #main {
-    transition: margin-left .5s;
-    width: 200px;
-    margin: 0px;
-    padding: 0px;
-  }
+#main {
+  display: flex;
+  transition: margin-left .5s;
+  padding: 20px;
+}
   
 .navbar {
-
   display: block;
- position: fixed;
+  position: fixed;
   background-color: var(--bg-primary);
   transition: width 600ms ease;
   overflow: scroll;
 }
 
-.header {
-  margin-left: 60px;
-  position: absolute;
-  font-size: 70px;
-  text-decoration: none;
-  color: black;
- top:50px;
- left: 50px;
-}
-
 .svg-icon {
   fill:white;
   color:white;
-  
 }
 
 .navbar-nav {
@@ -62,21 +43,16 @@
   align-items: center;
   height: 100%;
 }
+
 .navButton {
   align-self: flex-start;
   margin-top: auto;
   margin-bottom: 20px;
-  
-
 }
 
 .nav-item {
   width: 100%;
 }
-
-/*.nav-item:last-child {
-  margin-top: auto;
-}*/
 
 .nav-link {
   display: flex;
@@ -132,8 +108,7 @@
 }
 
 
-.logo-text
-{
+.logo-text {
   display: inline;
   position: absolute;
   left: -999px;
@@ -146,12 +121,6 @@
 
 /* Small screens */
 @media only screen and (max-width: 600px) {
-  /*.navbar {
-    bottom: 0;
-    width: 100vw;
-    height: 5rem;
-  }*/
-
   .logo {
     display: none;
   }
@@ -196,45 +165,6 @@
   }
 }
 
-.dark {
-  --text-primary: #b6b6b6;
-  --text-secondary: #ececec;
-  --bg-primary: #23232e;
-  --bg-secondary: #141418;
-}
-
-.light {
-  --text-primary: #1f1f1f;
-  --text-secondary: #000000;
-  --bg-primary: #ffffff;
-  --bg-secondary: #e4e4e4;
-}
-
-.solar {
-  --text-primary: #576e75;
-  --text-secondary: #35535c;
-  --bg-primary: #fdf6e3;
-  --bg-secondary: #f5e5b8;
-}
-
-.theme-icon {
-  display: none;
-}
-
-.dark #darkIcon {
-  display: block;
-}
-
-.light #lightIcon {
-  display: block;
-}
-
-.solar #solarIcon {
-  display: block;
-}
-
-
-
 .popup {
   display: none;
   position: fixed;
@@ -243,14 +173,12 @@
   top: 0;
   height: 100%;
   width: 100%;
-  
   background-color: rgba(0, 0, 0, 0.9);
 }
 
 .insidePopup {
   margin: 8% auto;
   width: 80%;
- 
 }
 
 .popupHeader h2,
@@ -290,63 +218,21 @@
   }
 }
 
-.preview-notes{
+/*.searchField {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  position: relative;
-  top:0px;
-  width: 300px;
-
-}
-
-.searchField {
-  
   margin-left:100px;
+}*/
 
-}
-.searchButton{
-
-  margin-left:100px;
-}
-
-/* Style the button that is used to open and close the collapsible content */
-.savedNotes {
-  background-color: #eee;
-  color: #444;
-  cursor: pointer;
-  padding: 18px;
+input[type="text"] {
   width: 200px;
-  border: none;
-  border-radius: 3%;
-  text-align: center;
-  outline: none;
-  font-size: 15px;
-  margin-left: 100px;
-  margin-top: 70px;
+  height: 20px;
+  padding-right: 50px;
 }
 
-/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-.active, .savedNotes:hover {
-  background-color: #ccc;
-}
-
-/* Style the collapsible content. Note: hidden by default */
-.note-list {
-  padding: 0 18px;
-  display: none;
-  overflow: hidden;
-  background-color: #f1f1f1;
-  width: 200px;
-  margin-left: 100px;
-}
-
-
-.wrapper {
-width: 75%;
-float: right;
-position: relative;
-
+input[type="submit"] {
+  margin-left: -50px;
+  height: 20px;
+  width: 50px;
 }
 
 #editor {
@@ -359,23 +245,10 @@ position: relative;
   box-shadow: none;
 }
 
-
-
 .title {
   margin: 10px;
   padding: 5px;
   outline: none;
-}
-
-
-.saveBtn{
-  float: right;
-  padding: 10px;
-  margin: 5px;
-  border: none;
-  letter-spacing:1px;
-  border-radius: 5px;
-  cursor: pointer;
 }
 
 .btn{
@@ -386,7 +259,20 @@ position: relative;
   letter-spacing:1px;
   border-radius: 5px;
   cursor: pointer;
-};
+}
+
+.left-side {
+  margin-left: 80px;
+  float: left;
+  width: 50%;
+}
+
+.right-side {
+  float: right;
+  width: 75%;
+  
+}
+
 
 
 @media print {
@@ -394,16 +280,11 @@ position: relative;
   section {
     display: none;
   }
- }
-
-
+}
  /* placeholder */
- [contentEditable=true]:empty:not(:focus):before{
+[contentEditable=true]:empty:not(:focus):before{
   content:attr(data-text)
 }
-
-
-
 
 @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
 
@@ -413,7 +294,6 @@ position: relative;
 
 body {
   background-color: #fafafa;
-	
 	height: 100vh;
 	margin: 0;
 	transition: background 0.2s linear;
@@ -427,7 +307,6 @@ body.dark {
 .checkbox {
 	opacity: 0;
   position: relative;
-  
 }
 
 .label {
@@ -457,6 +336,42 @@ body.dark {
 .checkbox:checked + .label .ball {
 	transform: translateX(24px);
 }
+
+/* Note CSS */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 300px;
+  max-height: 300px;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+.left {
+  text-align: left;
+}
+
+.right {
+  float: right;
+}
+
+@media screen and (max-width: 900px) {
+  .card {
+   width: 80px;
+
+  }
+  .right-side {
+    float: right;
+    width: 75%;
+    
+  }
+  .left-side {
+    margin-left: 80px;
+    float: left;
+    width: 50%;
+  }
+}
+
 
 
 
