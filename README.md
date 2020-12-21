@@ -1,3 +1,12 @@
-# Teamprojekt-Ink-1
-Teamproject 1 for group Ink
-hej hej
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="/Images/andela.jpg" alt="">
+</body>
+</html>

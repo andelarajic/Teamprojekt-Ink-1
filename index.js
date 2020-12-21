@@ -376,12 +376,12 @@ function printDiv() {
 
 
 
-const chk = document.getElementById('chk');
+/* const chk = document.getElementById('chk');
 
 chk.addEventListener('change', () => {
     document.body.classList.toggle('dark');
     document.btn.style.color = 'white';
-});
+}); */
 
 var checkbox = document.querySelector('input[name=chk]');
 
