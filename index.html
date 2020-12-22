@@ -72,10 +72,8 @@
 
   <div id="main">
     <section class="left-side">
-      <form class="searchBtn">
-        <input class="searchField" type="text" placeholder="Search.." name="search">
-        <button type="submit"><i class="fa fa-search"></i></button>
-      </form>
+      <input id="search" class="searchField" type="text" placeholder="Search..">
+      <button onclick="searchNotes()"><i class="fa fa-search"></i></button>
       <button type="button" class="savedNotes">Saved notes</button>
       <ul class="note-list"></ul>
     </section>

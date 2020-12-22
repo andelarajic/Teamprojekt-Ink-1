@@ -3,6 +3,7 @@ const popup = document.querySelector('#jsPopup');
 const closeBtn = document.querySelector('.close');
 
 const inpTitle = document.querySelector('.title');
+const searchField = document.querySelector('#search');
 const inpEditor = document.getElementById('editor');
 const lsOutput = document.querySelector('.lsOutput');
 const navUL = document.querySelector('.navbar-nav');
@@ -321,7 +322,15 @@ document.querySelector('.note-list').addEventListener('click', function (e) {
     localStorage.setItem('favorites', JSON.stringify(favorites));
 });
 
-// NAV FUNKTIONER SLUT
+function searchNotes() {
+    let filteredList = []
+    for(let i = 0; i < notes.length; i++) {
+        if(notes[i].title.toLowerCase().includes(searchField.value.toLowerCase())) {
+            filteredList.push(notes[i])
+        }
+    }
+    renderNotes(filteredList)
+}
 
 // QUILL FUNKTIONER 
 let toolbarOptions = [

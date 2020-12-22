@@ -596,6 +596,7 @@ input[type="submit"] {
 
 }
 
+
 html[data-theme='dark'] {
   --label: rgb(245, 240, 240);
   --btn:  rgb(245, 240, 240);
@@ -607,11 +608,14 @@ html[data-theme='dark'] {
  --notelist: #23232e;
  --title: rgb(245, 240, 240);
  --editor: rgb(245, 240, 240);
+
+
   /* text color */
  
 }
 
 html {
+ 
   --label: rgb(10, 10, 10);
   --bg: rgb(208, 200, 200);
   --btn: rgb(10, 10, 10);
@@ -619,6 +623,7 @@ html {
   --sn: rgb(10, 10, 10);
   --title: rgb(10, 10, 10);
   --editor: rgb(10, 10, 10);
+ 
   /* --notelist:rgb(10, 10, 10); */
 
   
