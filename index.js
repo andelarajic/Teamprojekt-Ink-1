@@ -42,8 +42,8 @@ console.log("currentNoteId: " + currentNoteId) //TODO ta bort
 function createNote() {
     console.log("title: " + inpTitle.innerText.length + ", text: " + inpTitle.innerText.length + ", number of notes: " + notes.length) //TODO ta bort
     var x = inpTitle.innerText;
-    let y = inpEditor.innerText; // vrf funkar den ej
-    if (y = '' || x.length >= 15) { // Fråga kristian om = och inte ==
+    let y = inpEditor.innerText;
+    if (y = '' || x.length >= 15) {
         alert("You need to fill out the name field properly");
         return false;// För att ha en titel med max 15 bokstäver 
     }
@@ -257,22 +257,6 @@ function myFunction() {
         x.className = "topnav";
     }
 }
-/* 
-function openNav() {
-    if (window.innerWidth < 600) {
-        return false;
-    }
-    // //Varför fungerar ej den här? fråga kristian
-    document.getElementById("sideNav").style.display = "block";
-
-} */
-//document.addEventListener('animationEnd', dispatchEvent, false);// funkar ej fråga kristian
-
-// check the animation name and operate accordingly
-//function dispatchEvent(event) {
-//    if (event.animationName === 'max-width-600px') {
-//       document.body.innerHTML = 'max width is 600px';
-//    }
 
 /* Close/hide the sidenav */
 function closeNav() {
@@ -324,8 +308,8 @@ document.querySelector('.note-list').addEventListener('click', function (e) {
 
 function searchNotes() {
     let filteredList = []
-    for(let i = 0; i < notes.length; i++) {
-        if(notes[i].title.toLowerCase().includes(searchField.value.toLowerCase())) {
+    for (let i = 0; i < notes.length; i++) {
+        if (notes[i].title.toLowerCase().includes(searchField.value.toLowerCase())) {
             filteredList.push(notes[i])
         }
     }
@@ -364,33 +348,6 @@ function printDiv() {
     content.print();
 }
 // PRINT FUNKTIONER SLUT
-
-/* function fromStorage() {
- 
-    let notesArrStr = localStorage.getItem(activeNoteID, JSON.stringify({ title: savedTitle, content: savedEditor }));
-    if (!notesArrStr) {
-        return;
-    }
-    notesArr = JSON.parse(notesArrStr);
-    savedAtSideNav()
-}; */
-
-/* saveBtn.addEventListener('click', function () {
-    console.log("cNB func ran");
-    createNote();
-    renderNotesList(notesArr);
-})
- */
-
-
-
-
-/* const chk = document.getElementById('chk');
-
-chk.addEventListener('change', () => {
-    document.body.classList.toggle('dark');
-    document.btn.style.color = 'white';
-}); */
 
 var checkbox = document.querySelector('input[name=chk]');
 
