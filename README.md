@@ -1,26 +1,4 @@
 
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
-[![Nikolas git][contributors-shield]][contributors-url]
-[![Andelas git][forks-shield]][forks-url]
-[![Saschas git][stars-shield]][stars-url]
-
-
-
-
-<!-- PROJECT LOGO -->
-<br />
-<p align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
-
 <h2 align="center">Quire</h2>
   <h3 align="center">A webbased noteapp made by Team Ink, front end developer students @ KYH Stockholm</h3>
 
@@ -30,13 +8,16 @@
     <a href=https://github.com/andelarajic/fe20tp1_Ink><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">Nikolas Git</a>
+    <a href="https://github.com/kayzersozee">Nikolas Git</a>
+    .
     <img src="/Images/nikolas.jpg" width="300" height="300" style="vertical-align:middle;margin:50px 0px">
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Andelas git</a>
+    <a href="https://github.com/andelarajic">Andelas git</a>
+    .
     <img src="/Images/andela.jpg" width="300" height="300" style="vertical-align:middle;margin:50px 0px">
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Saschas git</a>
+    <a href="https://github.com/Apotheosiz">Saschas git</a>
+    .
     <img src="/Images/sascha.jpg" width="300" height="300" style="vertical-align:middle;margin:50px 0px">
     .
   </p>
@@ -92,12 +73,4 @@ Sascha Kasapovski - sascha.kasapovski@student.kyh.se
 Project Link: [https://github.com/andelarajic/fe20tp1_Ink](https://github.com/andelarajic/fe20tp1_Ink)
 
 
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://avatars2.githubusercontent.com/u/63726574?s=400&u=56a354851364b9a053bf9ef8a1ed8447e41bb099&v=4
-[contributors-url]: https://github.com/kayzersozee
-[forks-shield]: https://avatars2.githubusercontent.com/u/63115138?s=400&u=846083f0b4d812c0a88526508b1d22156462766f&v=4
-[forks-url]: https://github.com/andelarajic
-[stars-shield]: https://avatars2.githubusercontent.com/u/70133164?s=400&v=4
-[stars-url]: https://github.com/Apotheosiz
 
