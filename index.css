@@ -593,9 +593,12 @@ input[type="submit"] {
   .nav-link {
     justify-content: center;
   }
-
 }
 
+.searchField {
+  background-color: var(--search);
+  color:var(--searchL)
+}
 
 html[data-theme='dark'] {
   --label: rgb(245, 240, 240);
@@ -608,6 +611,8 @@ html[data-theme='dark'] {
  --notelist: #23232e;
  --title: rgb(245, 240, 240);
  --editor: rgb(245, 240, 240);
+ --search:#23232e;
+ --searchL:rgb(245, 240, 240);
 
 
   /* text color */
@@ -623,7 +628,8 @@ html {
   --sn: rgb(10, 10, 10);
   --title: rgb(10, 10, 10);
   --editor: rgb(10, 10, 10);
- 
+  --search:rgb(245, 240, 240);
+  --searchL:rgb(10, 10, 10);
   /* --notelist:rgb(10, 10, 10); */
 
   
