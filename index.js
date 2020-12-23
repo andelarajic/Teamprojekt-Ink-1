@@ -24,9 +24,7 @@ favBtn.addEventListener('click', (evt) => {
 
 //Hämta alla notes som finns sparade i local-storage
 let notes = JSON.parse(localStorage.getItem("notes"))
-/* if (notes) {
-    popup.style.display = 'none';
-} */
+
 //ID på den note som för tillfället används
 let currentNoteId = generate_UUID()
 
@@ -113,7 +111,7 @@ function noteToHTML(note) {
         //let clickedLI = evt.target.closest('li');
         //let clickedID = clickedLI.getAttribute('data-id');
         if (evt.target.classList.contains('fa-star') || evt.target.classList.contains('fa-star-o')) {
-            //console.log(note.id)
+
             toggleFav(note.id)
         } else {
             currentNoteId = note.id
@@ -275,11 +273,6 @@ navUL.addEventListener('mouseleave', function (evt) {
     mainDIV.style = "";
 })
 
-/* let infoBtn = document.getElementByClassName('link-text');
- 
-infoBtn.addEventListener('click', function () {
-    openPopup()
-}); */
 
 let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 // add class 'fav' to each favorite
@@ -322,14 +315,6 @@ let toolbarOptions = [
     ["blockquote", "code-block"],
     [{ "header": [1, 2, 3, 4, 5, 6, false] }],
     [{ "list": "ordered" }, { "list": "bullet" }],
-    /*[{ "script": "sub" }, { "script": "super" }],
-    [{ "indent": "-1" }, { "indent": "+1" }],
-    [{ "direction": "rtl" }],
-    [{ "size": ["small", false, "large", "huge"] }],
-    ["link", "image", "video", "formula"],
-    [{ "color": [] }, { "background": [] }],
-    [{ "font": [] }],
-    [{ "align": [] }],*/
 ];
 let quill = new Quill('#editor', {
     modules: {

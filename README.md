@@ -70,6 +70,8 @@ Nikolas Rosinelli - nikolas.rosinelli@student.kyh.se
 Andela Rajic- andela.rajic@student.kyh.se
 Sascha Kasapovski - sascha.kasapovski@student.kyh.se
 
+Link to trello: https://trello.com/b/GCoTV0j4/ink
+
 Project Link: [https://github.com/andelarajic/fe20tp1_Ink](https://github.com/andelarajic/fe20tp1_Ink)
 
 
